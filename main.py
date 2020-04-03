@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+from time import *
 
+begin_time = time()
 
 chains = []
 
@@ -129,9 +131,6 @@ chains = loopchains
 loopchains = []
 
 for chain in chains:
-    #file_debug.write(str(chain)+'\n')
-    #if not chain[0] == chain[-1]:
-    #    continue
     chain = chain[0:-1]
     minindex = chain.index(min(chain))
     chain = chain[minindex:] + chain[:minindex]
@@ -151,8 +150,6 @@ for chain in chains:
         if i == N2 -1:
             loopchains.append(chain)
 
-#loopchains = [tuple(x) for x in loopchains]
-#loopchains = list(set(loopchains))
 loopchains2 = []
 for loopchain in loopchains:
     if not loopchain in loopchains2:
@@ -163,3 +160,6 @@ N = len(loopchains2)
 file_res.write(str(N)+"\n")
 for i in range(0,N):
     file_res.write(','.join([str(x) for x in loopchains2[i]])+'\n')
+end_time = time()
+
+print('time is '+str(end_time - begin_time))
