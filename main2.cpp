@@ -1,5 +1,5 @@
 #include <iostream>
-#include <deque>
+#include <vector>
 #include <sstream>
 #include <fstream>
 #include <cmath>
@@ -18,7 +18,7 @@ int main(){
 	int size;
 	bool chain;
 
-	deque<int *> l1_chains;
+	vector<int *> l1_chains;
 	int data_tmp;
 	while (infile){
 		getline(infile,line);
@@ -44,7 +44,7 @@ int main(){
 
 	
 	size = l1_chains.size();
-	deque<int*> l2_chains;
+	vector<int*> l2_chains;
 	for(int i=0;i<size;i++){
 		for(int j=i+1;j<size;j++){
 			if(l1_chains[i][1] == l1_chains[j][0]){
@@ -74,7 +74,7 @@ int main(){
 	//for(int i=0;i<size;i++){
 	//	cout << l2_chains[i][0] << "," << l2_chains[i][1] << "," << l2_chains[i][2] << "\n";
 	//}
-	deque<int*> l3_chains;
+	vector<int*> l3_chains;
 	const int nl3 = 4;
 	for(int i=0;i<size;i++){
 		for(int j=i+1;j<size;j++){
@@ -114,10 +114,10 @@ int main(){
 	}
 
 
-	deque<int*> loop_chains3;
+	vector<int*> loop_chains3;
 
 	size = l3_chains.size();
-	deque<int*> l4_chains;
+	vector<int*> l4_chains;
 	const int nl4 = 5;
 	for(int i=0;i<size;i++){
 		if(l3_chains[i][0] == l3_chains[i][nl4-2]){
@@ -162,8 +162,8 @@ int main(){
 
 
 	size = l4_chains.size();
-	deque<int*> l5_chains;
-	deque<int*> loop_chains4;
+	vector<int*> l5_chains;
+	vector<int*> loop_chains4;
 	const int nl5 = 6;
 	for(int i=0;i<size;i++){
 		if(l4_chains[i][0] == l4_chains[i][nl5-2]){
@@ -210,8 +210,8 @@ int main(){
 
 
 	size = l5_chains.size();
-	deque<int*> l6_chains;
-	deque<int*> loop_chains5;
+	vector<int*> l6_chains;
+	vector<int*> loop_chains5;
 	const int nl6 = 7;
 	for(int i=0;i<size;i++){
 		if(l5_chains[i][0] == l5_chains[i][nl6-2]){
@@ -255,8 +255,8 @@ int main(){
 	}
 
 	size = l6_chains.size();
-	deque<int*> l7_chains;
-	deque<int*> loop_chains6;
+	vector<int*> l7_chains;
+	vector<int*> loop_chains6;
 	const int nl7 = 8;
 	for(int i=0;i<size;i++){
 		if(l6_chains[i][0] == l6_chains[i][nl7-2]){
@@ -300,7 +300,7 @@ int main(){
 	}
 
 	
-	deque<int*> loop_chains7;
+	vector<int*> loop_chains7;
 	size = l7_chains.size();
 	for(int i=0;i<size;i++){
 		if(l7_chains[i][0] == l7_chains[i][nl7-1]){
@@ -347,10 +347,10 @@ int main(){
 	}
 
 	double tmpp[3] = {2,1,30};
-	cout << "mini is " << *min_element(tmpp,tmpp+3) << "\n";
-        clock_t end = clock();
+	 cout << "mini is " << *min_element(tmpp,tmpp+3) << "\n";
+	clock_t end = clock();
 
-	cout << "total time is : " << (end - start)/1e6 << "s\n";
+	cout << "total time is : " << (end - start)/1e6 << "s\n"; 
 
 	return 0;
 }

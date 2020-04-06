@@ -2,8 +2,6 @@
 import numpy as np
 from time import *
 
-# considering matrix calculation 
-
 begin_time = time()
 
 chains = []
@@ -13,10 +11,8 @@ lines = file.readlines()
 
 l1_chains = []
 for line in lines:
-    datas = [int(x) for x in line.strip().split(',')[0:2]]
+    datas = [int(x) for x in line.strip().split(',')]
     l1_chains.append(datas) 
-
-l1_chains = np.array(l1_chains,'i')
 
 N = len(l1_chains)
 l2_chains = []
@@ -27,7 +23,6 @@ for i in range(N):
 
         if l1_chains[i][0] == l1_chains[j][1]:
             l2_chains.append(l1_chains[j][0:2]+[l1_chains[i][1]])
-
 N = len(l2_chains)
 i = 0
 for j in range(N):
