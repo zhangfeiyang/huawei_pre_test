@@ -1,4 +1,5 @@
 #include <iostream>
+#include <thread>
 #include <vector>
 #include <sstream>
 #include <fstream>
@@ -48,6 +49,7 @@ int main(){
 				dataV2[1] = l1_chains[i][1];
 				dataV2[2] = l1_chains[j][1];
 				l2_chains.push_back(dataV2);
+				continue;
 			}
 			if(l1_chains[i][0] == l1_chains[j][1]){
 				int *dataV2 = new int[3];
@@ -81,11 +83,12 @@ int main(){
 			}
 			if(chain){
 				int *dataV2 = new int[nl3];
-				for(int k=0;k<nl3;k++){
-					if(k<nl3-1) dataV2[k] = l2_chains[i][k];
-					else dataV2[k] = l2_chains[j][k-1];
+				for(int k=0;k<nl3-1;k++){
+					dataV2[k] = l2_chains[i][k];
 				}
+				dataV2[nl3-1] = l2_chains[j][nl3-2];
 				l3_chains.push_back(dataV2);
+				continue;
 			}
 
 			chain = true;
@@ -97,10 +100,10 @@ int main(){
 			}
 			if(chain){
 				int *dataV2 = new int[nl3];
-				for(int k=0;k<nl3;k++){
-					if(k<nl3-1) dataV2[k] = l2_chains[j][k];
-					else dataV2[k] = l2_chains[i][k-1];
+				for(int k=0;k<nl3-1;k++){
+					dataV2[k] = l2_chains[j][k];
 				}
+				dataV2[nl3-1] = l2_chains[i][nl3-2];
 				l3_chains.push_back(dataV2);
 			}
 		}
@@ -130,11 +133,12 @@ int main(){
 			}
 			if(chain){
 				int *dataV2 = new int[nl4];
-				for(int k=0;k<nl4;k++){
-					if(k<nl4-1) dataV2[k] = l3_chains[i][k];
-					else dataV2[k] = l3_chains[j][k-1];
+				for(int k=0;k<nl4-1;k++){
+					dataV2[k] = l3_chains[i][k];
 				}
+				dataV2[nl4-1] = l3_chains[j][nl4-2];
 				l4_chains.push_back(dataV2);
+				continue;
 			}
 
 			chain = true;
@@ -146,10 +150,10 @@ int main(){
 			}
 			if(chain){
 				int *dataV2 = new int[nl4];
-				for(int k=0;k<nl4;k++){
-					if(k<nl4-1) dataV2[k] = l3_chains[j][k];
-					else dataV2[k] = l3_chains[i][k-1];
+				for(int k=0;k<nl4-1;k++){
+					dataV2[k] = l3_chains[j][k];
 				}
+				dataV2[nl4-1] = l3_chains[i][nl4-2];
 				l4_chains.push_back(dataV2);
 			}
 		}
@@ -181,11 +185,12 @@ int main(){
 			}
 			if(chain){
 				int *dataV2 = new int[nl5];
-				for(int k=0;k<nl5;k++){
-					if(k<nl5-1) dataV2[k] = l4_chains[i][k];
-					else dataV2[k] = l4_chains[j][k-1];
+				for(int k=0;k<nl5-1;k++){
+					dataV2[k] = l4_chains[i][k];
 				}
+				dataV2[nl5-1] = l4_chains[j][nl5-2];
 				l5_chains.push_back(dataV2);
+				continue;
 			}
 
 			chain = true;
@@ -197,10 +202,10 @@ int main(){
 			}
 			if(chain){
 				int *dataV2 = new int[nl5];
-				for(int k=0;k<nl5;k++){
-					if(k<nl5-1) dataV2[k] = l4_chains[j][k];
-					else dataV2[k] = l4_chains[i][k-1];
+				for(int k=0;k<nl5-1;k++){
+					dataV2[k] = l4_chains[j][k];
 				}
+				dataV2[nl5-1] = l4_chains[i][nl5-2];
 				l5_chains.push_back(dataV2);
 			}
 		}
@@ -229,11 +234,12 @@ int main(){
 			}
 			if(chain){
 				int *dataV2 = new int[nl6];
-				for(int k=0;k<nl6;k++){
-					if(k<nl6-1) dataV2[k] = l5_chains[i][k];
-					else dataV2[k] = l5_chains[j][k-1];
+				for(int k=0;k<nl6-1;k++){
+					dataV2[k] = l5_chains[i][k];
 				}
+				dataV2[nl6-1] = l5_chains[j][nl6-2];
 				l6_chains.push_back(dataV2);
+				continue;
 			}
 
 			chain = true;
@@ -245,10 +251,10 @@ int main(){
 			}
 			if(chain){
 				int *dataV2 = new int[nl6];
-				for(int k=0;k<nl6;k++){
-					if(k<nl6-1) dataV2[k] = l5_chains[j][k];
-					else dataV2[k] = l5_chains[i][k-1];
+				for(int k=0;k<nl6-1;k++){
+					dataV2[k] = l5_chains[j][k];
 				}
+				dataV2[nl6-1] = l5_chains[i][nl6-2];
 				l6_chains.push_back(dataV2);
 			}
 		}
@@ -277,11 +283,12 @@ int main(){
 			}
 			if(chain){
 				int *dataV2 = new int[nl7];
-				for(int k=0;k<nl7;k++){
-					if(k<nl7-1) dataV2[k] = l6_chains[i][k];
-					else dataV2[k] = l6_chains[j][k-1];
+				for(int k=0;k<nl7-1;k++){
+					dataV2[k] = l6_chains[i][k];
 				}
+				dataV2[nl7-1] = l6_chains[j][nl7-2];
 				l7_chains.push_back(dataV2);
+				continue;
 			}
 
 			chain = true;
@@ -293,10 +300,10 @@ int main(){
 			}
 			if(chain){
 				int *dataV2 = new int[nl7];
-				for(int k=0;k<nl7;k++){
-					if(k<nl7-1) dataV2[k] = l6_chains[j][k];
-					else dataV2[k] = l6_chains[i][k-1];
+				for(int k=0;k<nl7-1;k++){
+					dataV2[k] = l6_chains[j][k];
 				}
+				dataV2[nl7-1] = l6_chains[i][nl7-2];
 				l7_chains.push_back(dataV2);
 			}
 		}
@@ -307,9 +314,13 @@ int main(){
 	for(int i=0;i<size;i++){
 		if(l7_chains[i][0] == l7_chains[i][nl7-1]){
 			loop_chains7.push_back(l7_chains[i]);	
-			continue;
 		}
 	}
+
+        clock_t mid = clock();
+
+	cout << "mid time is : " << (mid - start)/1e6 << "s\n";
+
 
 	size = loop_chains3.size();
 	vector<int*> Loop_chains3;
@@ -349,8 +360,6 @@ int main(){
 		}
 		nloops++;
 		for(int j=0;j<nl3-1;j++){
-			//if(j < nl3-2) cout << Loop_chains3[i][j] << ",";
-			//else cout << Loop_chains3[i][j] << "\n";
 			char *strs = new char[100];
 			if(j < nl3-2) sprintf(strs,"%i,",Loop_chains3[i][j]);
 			else sprintf(strs,"%i\n",Loop_chains3[i][j]);
