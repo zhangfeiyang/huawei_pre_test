@@ -325,6 +325,8 @@ int main(){
 	}
 
 
+	vector<char*> result;
+	int nloops = 0;
 	for(int i=0;i<size-1;i++){
 		for(int j=0;j<size-1-i;j++){
 			if(Loop_chains3[j][0] > Loop_chains3[j+1][0]){	
@@ -345,9 +347,14 @@ int main(){
 		if(i>0){
 			if(Loop_chains3[i][0] == Loop_chains3[i-1][0] && Loop_chains3[i][1] == Loop_chains3[i-1][1]) continue;
 		}
+		nloops++;
 		for(int j=0;j<nl3-1;j++){
-			if(j < nl3-2) cout << Loop_chains3[i][j] << ",";
-			else cout << Loop_chains3[i][j] << "\n";
+			//if(j < nl3-2) cout << Loop_chains3[i][j] << ",";
+			//else cout << Loop_chains3[i][j] << "\n";
+			char *strs = new char[100];
+			if(j < nl3-2) sprintf(strs,"%i,",Loop_chains3[i][j]);
+			else sprintf(strs,"%i\n",Loop_chains3[i][j]);
+			result.push_back(strs);
 		}
 	}
 
@@ -385,9 +392,14 @@ int main(){
 		if(i>0){
 			if(Loop_chains4[i][0] == Loop_chains4[i-1][0] && Loop_chains4[i][1] == Loop_chains4[i-1][1]) continue;
 		}
+		nloops++;
 		for(int j=0;j<nl4-1;j++){
-			if(j < nl4-2) cout << Loop_chains4[i][j] << ",";
-			else cout << Loop_chains4[i][j] << "\n";
+			//if(j < nl4-2) cout << Loop_chains4[i][j] << ",";
+			//else cout << Loop_chains4[i][j] << "\n";
+			char *strs = new char[100];
+			if(j < nl4-2) sprintf(strs,"%i,",Loop_chains4[i][j]);
+			else sprintf(strs,"%i\n",Loop_chains4[i][j]);
+			result.push_back(strs);
 		}
 	}
 
@@ -427,9 +439,14 @@ int main(){
 		if(i>0){
 			if(Loop_chains5[i][0] == Loop_chains5[i-1][0] && Loop_chains5[i][1] == Loop_chains5[i-1][1]) continue;
 		}
+		nloops++;
 		for(int j=0;j<nl5-1;j++){
-			if(j < nl5-2) cout << Loop_chains5[i][j] << ",";
-			else cout << Loop_chains5[i][j] << "\n";
+			//if(j < nl5-2) cout << Loop_chains5[i][j] << ",";
+			//else cout << Loop_chains5[i][j] << "\n";
+			char *strs = new char[100];
+			if(j < nl5-2) sprintf(strs,"%i,",Loop_chains5[i][j]);
+			else sprintf(strs,"%i\n",Loop_chains5[i][j]);
+			result.push_back(strs);
 		}
 	}
 
@@ -469,9 +486,14 @@ int main(){
 		if(i>0){
 			if(Loop_chains6[i][0] == Loop_chains6[i-1][0] && Loop_chains6[i][1] == Loop_chains6[i-1][1]) continue;
 		}
+		nloops++;
 		for(int j=0;j<nl6-1;j++){
-			if(j < nl6-2) cout << Loop_chains6[i][j] << ",";
-			else cout << Loop_chains6[i][j] << "\n";
+			//if(j < nl6-2) cout << Loop_chains6[i][j] << ",";
+			//else cout << Loop_chains6[i][j] << "\n";
+			char *strs = new char[100];
+			if(j < nl6-2) sprintf(strs,"%i,",Loop_chains6[i][j]);
+			else sprintf(strs,"%i\n",Loop_chains6[i][j]);
+			result.push_back(strs);
 		}
 	}
 
@@ -513,15 +535,25 @@ int main(){
 		if(i>0){
 			if(Loop_chains7[i][0] == Loop_chains7[i-1][0] && Loop_chains7[i][1] == Loop_chains7[i-1][1]) continue;
 		}
+		nloops++;
 		for(int j=0;j<nl7-1;j++){
-			if(j < nl7-2) cout << Loop_chains7[i][j] << ",";
-			else cout << Loop_chains7[i][j] << "\n";
+			//if(j < nl7-2) cout << Loop_chains7[i][j] << ",";
+			//else cout << Loop_chains7[i][j] << "\n";
+			char *strs = new char[100];
+			if(j < nl7-2) sprintf(strs,"%i,",Loop_chains7[i][j]);
+			else sprintf(strs,"%i\n",Loop_chains7[i][j]);
+			result.push_back(strs);
 		}
 	}
 
-	clock_t end = clock();
+	cout << nloops << "\n";
+	size = result.size();
+	for(int i=0;i<size;i++){
+		cout << result[i];
+	}
+	
 
-	cout << Form("%iss",1) << "\n";
+	clock_t end = clock();
 
 	cout << "total time is : " << (end - start)/1e6 << "s\n"; 
 
